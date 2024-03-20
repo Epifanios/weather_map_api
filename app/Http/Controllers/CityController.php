@@ -10,7 +10,7 @@ class CityController extends Controller
     public function create(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required'
+            'name' => ['required', 'unique:cities,name']
         ]);
 
         $city = City::create($request->all());
